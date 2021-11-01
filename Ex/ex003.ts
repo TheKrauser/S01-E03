@@ -1,13 +1,13 @@
-function listaNumericaImperativo(values : number[])
+function listaNumericaImperativo(values : number[]) : [number, number, number]
 {
     //Declaração das Variáveis
-    let maior, menor, medio = 0;
+    let maior : number, menor : number, medio : number = 0;
 
     //For circulando por toda o Array de valores
     for (let i = 0; i < values.length; i++)
     {
         //Função que retorna true se TODOS os elementos forem números
-        if (!values.some(isNaN))
+        if (values.some(isNaN))
         {
             //Caso seja negativa manda mensagem de erro
             console.log("ERRO: Um dos valores não é um número.")
@@ -49,9 +49,9 @@ function listaNumericaImperativo(values : number[])
     return [maior, menor, medio];
 }
 
-listaNumericaImperativo([5, 19, 22, 12, 3, 5, 3]);
+//listaNumericaImperativo([5, 19, 22, 12, 3, 5, 3]);
 
-function listaNumericaFuncional(values : number[])
+function listaNumericaFuncional(values : number[]) : [number, number, number]
 {
     //Mesma função da última vez, verifica se são numeros no array
     if (values.some(isNaN))
@@ -61,16 +61,16 @@ function listaNumericaFuncional(values : number[])
     }
 
     //Usando a função Math.max.apply para circular pela array e retornar o maior número
-    const maior = Math.max.apply(null, values);
-    const menor = Math.min.apply(null, values);
+    const maior : number = Math.max.apply(null, values);
+    const menor : number = Math.min.apply(null, values);
 
     //Função reduce para circular fazendo a soma de todos os elementos
-    const total = values.reduce(function(soma, atual) {
+    const total : number = values.reduce(function(soma, atual) {
         return soma + atual
     }, 0);
 
     //Ao fazer a soma divide o total pelo número de elementos e atribui o valor médio
-    const medio = total / values.length;
+    const medio : number = total / values.length;
 
     //Imprime na tela
     console.log(maior);
@@ -81,4 +81,4 @@ function listaNumericaFuncional(values : number[])
     return [maior, menor, medio];
 }
 
-listaNumericaFuncional([3, 5, 2, 1, 10, 23, 33, 21]);
+//listaNumericaFuncional([3, 5, 2, 1, 10, 23, 33, 21]);
